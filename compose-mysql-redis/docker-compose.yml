@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+    redis:
+        image: redis:6.2.1-buster
+        ports:
+            - 6379:6379
+    
+    mysql:
+        build:
+            context: .
+            dockerfile: Dockerfile_mysql
+        ports:
+            - 3306:3306
