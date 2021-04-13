@@ -1,0 +1,8 @@
+FROM redis:6.2.1-buster
+LABEL maintainer="Song Junwoo <busang.song@gmail.com>"
+
+# COPY redis.conf /usr/local/etc/redis/redis.conf
+
+# CMD ["redis-server", "/usr/local/etc/redis/redis.conf"]
+CMD ["redis-server", "--requirepass secret"]
+EXPOSE 6379

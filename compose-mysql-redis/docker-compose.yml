@@ -2,7 +2,9 @@ version: "3.7"
 
 services:
     redis:
-        image: redis:6.2.1-buster
+        build:
+            context: .
+            dockerfile: Dockerfile_redis
         ports:
             - 6379:6379
     
