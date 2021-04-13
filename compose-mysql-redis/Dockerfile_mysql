@@ -2,8 +2,12 @@ FROM mysql:5.7
 LABEL maintainer="Song Junwoo <busang.song@gmail.com>"
 
 ENV MYSQL_ROOT_PASSWORD=secret
-ENV MYSQL_DATABASE=testdb
+ENV MYSQL_DATABASE=golf
+ENV TZ=Asia/Seoul
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 COPY create_tables.sql /docker-entrypoint-initdb.d/
+COPY mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
 EXPOSE 3306
