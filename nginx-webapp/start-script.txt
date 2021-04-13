@@ -1,0 +1,2 @@
+docker build -t nginapp . && \
+docker run -dp 80:80 --name ngintest -v ${PWD}/app:/app nginapp
